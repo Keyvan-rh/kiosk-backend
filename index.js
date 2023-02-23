@@ -3,8 +3,12 @@ const app = express();
 const host = process.env.IP  || '0.0.0.0';
 const port = process.env.PORT || 8080;
 //const dbConnectionUrl = process.env.MONGODB_URL || 'mongodb://userK0V:EaNeJaDhXQxxq8Wd@mongodb/sampledb';
-const dbConnectionUrl = process.env.MONGODB_URL || 'mongodb://' + process.env.username +':'+ process.env.password+'@mongodb/' +process.env.database_name;
-const dbName = process.env.MONGODB_DBNAME || 'sampledb';
+//const dbConnectionUrl = process.env.MONGODB_URL || 'mongodb://' + process.env.username +':'+ process.env.password+'@mongodb/' +process.env.database_name;
+//const dbName = process.env.MONGODB_DBNAME || 'sampledb';
+const dbConnectionUrl = process.env.MONGODB_URL || 'mongodb://' + process.env.user +':'+ process.env.password+'@localhost:27017/' +process.env.database_name;
+console.log(dbConnectionUrl);
+const dbName = process.env.MONGODB_DBNAME || 'kiosk'; 
+
 const mongo = require('mongodb').MongoClient;
 
 app.get('/ticketNumber', function(req, res, next) {
